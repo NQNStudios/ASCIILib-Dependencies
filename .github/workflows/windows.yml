@@ -6,7 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # Build ICU
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
       - run: ./runConfigureICU MSYS/MSVC
         working-directory: icu/icu4c/source
       - run: msbuild source\allinone\allinone.sln /p:Configuration=Release /p:Platform=x64
