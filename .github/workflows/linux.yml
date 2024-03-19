@@ -19,7 +19,7 @@ jobs:
       # Build SDL2_image
       - run: ./configure; make
         working-directory: SDL2_image
-      
+
       # Build SDL2_mixer
       - run: ./configure; make
         working-directory: SDL2_mixer
