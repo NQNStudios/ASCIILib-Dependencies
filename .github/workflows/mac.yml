@@ -33,4 +33,10 @@ jobs:
         with:
           name: mac-dependencies
           path: |
-            icu/icu4c/source/bin
+            icu/icu4c/source/
+            SDL2/include
+            SDL2/build
+            SDL2_image/include
+            SDL2_image/build
+            SDL2_mixer/include
+            SDL2_mixer/build
