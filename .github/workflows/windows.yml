@@ -9,7 +9,7 @@ jobs:
       # Build ICU
       - run: ./runConfigureICU MSYS/MSVC
         working-directory: icu/icu4c/source
-      - run: make
+      - run: msbuild source\allinone\allinone.sln /p:Configuration=Release /p:Platform=x64
         working-directory: icu/icu4c/source
 
       # Build SDL2
