@@ -11,22 +11,23 @@ jobs:
       - run: brew install make
       - run: brew install automake
 
-      # Build ICU
-      - run: ./runConfigureICU MacOSX
+      - name: Configure ICU
+        run: ./runConfigureICU MacOSX
         working-directory: icu/icu4c/source
-      - run: gmake
+      - name: Build ICU
+        run: gmake
         working-directory: icu/icu4c/source
 
-      # Build SDL2
-      - run: ./configure; make; make install
+      - name: Build SDL2
+        run: ./configure; make
         working-directory: SDL2
       
-      # Build SDL2_image
-      - run: ./configure; make; make install
+      - name: Build SDL2_image
+        run: ./configure; make
         working-directory: SDL2_image
       
-      # Build SDL2_mixer
-      - run: ./configure; make; make install
+      - name: Build SDL2_mixer
+        run: ./configure; make
         working-directory: SDL2_mixer
       
       # Upload everything
