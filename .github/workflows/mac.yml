@@ -8,6 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - run: brew install make
+
       # Build ICU
       - run: ./runConfigureICU MacOSX
         working-directory: icu/icu4c/source
