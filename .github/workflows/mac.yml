@@ -9,6 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - run: brew install make
+      - run: brew install automake
 
       # Build ICU
       - run: ./runConfigureICU MacOSX
