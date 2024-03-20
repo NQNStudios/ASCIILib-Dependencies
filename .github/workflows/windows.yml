@@ -40,9 +40,10 @@ jobs:
           path: |
             icu/icu4c/source/
             icu/icu4c/source/bin
+            icu/icu4c/source/lib
             SDL2/include
-            SDL2/build
+            SDL2/Release
             SDL2_image/include
-            SDL2_image/build
+            SDL2_image/Release
             SDL2_mixer/include
-            SDL2_mixer/build
+            SDL2_mixer/Release
