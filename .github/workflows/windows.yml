@@ -17,14 +17,14 @@ jobs:
         run: msbuild VisualC/SDL.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
         working-directory: SDL2
 
-      - run: cp SDL2/include/* SDL2_image/include
+      # Rename SDL2 to SDL so image and mixer can find include/ and libs
+      - run: mv SDL2 SDL
         shell: bash
+
       - name: Build SDL2_image
         run: msbuild VisualC/SDL_image.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
         working-directory: SDL2_image
 
-      - run: cp SDL2/include/* SDL2_mixer/include
-        shell: bash
       - name: Build SDL2_mixer
         run: msbuild VisualC/SDL_mixer.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
         working-directory: SDL2_mixer
