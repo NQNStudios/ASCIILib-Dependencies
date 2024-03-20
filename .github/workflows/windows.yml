@@ -15,25 +15,16 @@ jobs:
         run: msbuild source\allinone\allinone.sln /p:Configuration=Release /p:Platform=x64
         working-directory: icu/icu4c
 
-      - run: ./configure
-        working-directory: SDL2
-        shell: bash
       - name: Build SDL2
-        run: make
+        run: msbuild VisualC/SDL.sln /p:Configuration=Release /p:Platform=x64
         working-directory: SDL2
 
-      - run: ./configure
-        working-directory: SDL2_image
-        shell: bash
       - name: Build SDL2_image
-        run: make
+        run: msbuild VisualC/SDL_image.sln /p:Configuration=Release /p:Platform=x64
         working-directory: SDL2_image
 
-      - run: ./configure
-        working-directory: SDL2_mixer
-        shell: bash
       - name: Build SDL2_mixer
-        run: make
+        run: msbuild VisualC/SDL_mixer.sln /p:Configuration=Release /p:Platform=x64
         working-directory: SDL2_mixer
 
       # Upload everything
