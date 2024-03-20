@@ -29,6 +29,10 @@ jobs:
         run: msbuild VisualC/SDL_mixer.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
         working-directory: SDL2_mixer
 
+      # put SDL2 back so the artifact can be uploaded
+      - run: mv SDL SDL2
+        shell: bash
+
       # Upload everything
       - uses: actions/upload-artifact@v4
         with:
