@@ -42,8 +42,8 @@ jobs:
           path: |
             icu_icu4c_source.tar
             SDL2/include
-            SDL2/Release
+            SDL2/x64/Release
             SDL2_image/include
-            SDL2_image/Release
+            SDL2_image/x64/Release
             SDL2_mixer/include
-            SDL2_mixer/Release
+            SDL2_mixer/x64/Release
