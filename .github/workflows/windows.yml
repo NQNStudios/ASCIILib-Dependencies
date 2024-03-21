@@ -35,18 +35,6 @@ jobs:
 
       - run: tar -cvf icu_icu4c_source.tar icu/icu4c/source
 
-      - run: ls
-        shell: bash
-        working-directory: SDL2
-
-      - run: ls
-        shell: bash
-        working-directory: SDL2_mixer
-
-      - run: ls
-        shell: bash
-        working-directory: SDL2_image
-
       # Upload everything
       - uses: actions/upload-artifact@v4
         with:
@@ -54,8 +42,8 @@ jobs:
           path: |
             icu_icu4c_source.tar
             SDL2/include
-            SDL2/x64/Release
+            SDL2/VisualC/x64/Release
             SDL2_image/include
-            SDL2_image/x64/Release
+            SDL2_image/VisualC/x64/Release
             SDL2_mixer/include
-            SDL2_mixer/x64/Release
+            SDL2_mixer/VisualC/x64/Release
