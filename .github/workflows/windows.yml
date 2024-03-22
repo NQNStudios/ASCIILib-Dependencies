@@ -33,14 +33,14 @@ jobs:
       - run: mv SDL SDL2
         shell: bash
 
-      - run: tar -cvf icu_icu4c_source.tar icu/icu4c/source
+      - run: tar -cvf icu_icu4c.tar icu/icu4c
 
       # Upload everything
       - uses: actions/upload-artifact@v4
         with:
           name: windows-dependencies
           path: |
-            icu_icu4c_source.tar
+            icu_icu4c.tar
             SDL2/include
             SDL2/VisualC/x64/Release
             SDL2_image/include
