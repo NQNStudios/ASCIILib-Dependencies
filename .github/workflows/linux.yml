@@ -14,7 +14,7 @@ jobs:
         working-directory: icu/icu4c/source
       - name: Build ICU include directories
         run: make install
-        working-directory: icu/icu4c
+        working-directory: icu/icu4c/source
 
       - name: Build SDL2
         run: ./configure; make; sudo make install
