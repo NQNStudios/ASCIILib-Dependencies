@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       
       # Build ICU
-      - run: ./runConfigureICU --prefix=../ Linux
+      - run: ./runConfigureICU Linux --prefix=../
         working-directory: icu/icu4c/source
       - run: make
         working-directory: icu/icu4c/source
