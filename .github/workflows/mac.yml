@@ -17,6 +17,8 @@ jobs:
       - name: Build ICU
         run: gmake
         working-directory: icu/icu4c/source
+      - run: ls -R
+        working-directory: icu/icu4c
 
       - name: Build SDL2
         run: ./configure; make; make install

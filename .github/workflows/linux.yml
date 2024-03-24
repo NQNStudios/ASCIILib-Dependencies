@@ -12,6 +12,9 @@ jobs:
       - run: make
         working-directory: icu/icu4c/source
 
+      - run: ls -R
+        working-directory: icu/icu4c
+
       # Build SDL2
       - run: ./configure; make; sudo make install
         working-directory: SDL2
