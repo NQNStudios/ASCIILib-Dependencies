@@ -12,13 +12,13 @@ jobs:
       - run: brew install automake
 
       - name: Configure ICU
-        run: ./runConfigureICU MacOSX
+        run: ./runConfigureICU --prefix=../ MacOSX
         working-directory: icu/icu4c/source
       - name: Build ICU
         run: gmake
         working-directory: icu/icu4c/source
       - name: Build ICU include directories
-        run: gmake install --prefix=$(pwd)
+        run: gmake install
         working-directory: icu/icu4c
       - run: ls -R
         working-directory: icu/icu4c

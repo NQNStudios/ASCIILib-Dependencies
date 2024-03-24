@@ -7,12 +7,12 @@ jobs:
       - uses: actions/checkout@v4
       
       # Build ICU
-      - run: ./runConfigureICU Linux
+      - run: ./runConfigureICU --prefix=../ Linux
         working-directory: icu/icu4c/source
       - run: make
         working-directory: icu/icu4c/source
       - name: Build ICU include directories
-        run: make install --prefix=$(pwd)
+        run: make install
         working-directory: icu/icu4c
 
       - run: ls -R
