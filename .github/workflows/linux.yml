@@ -27,7 +27,7 @@ jobs:
       # Upload everything
       - uses: actions/upload-artifact@v4
         with:
-          name: windows-dependencies
+          name: linux-dependencies
           path: |
             icu/icu4c/source/
             icu/icu4c/source/bin
