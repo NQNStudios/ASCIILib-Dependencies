@@ -17,6 +17,9 @@ jobs:
       - name: Build ICU
         run: gmake
         working-directory: icu/icu4c/source
+      - name: Build ICU include directories
+        run: gmake install --prefix=$(pwd)
+        working-directory: icu/icu4c
       - run: ls -R
         working-directory: icu/icu4c
 
