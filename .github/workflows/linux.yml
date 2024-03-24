@@ -30,7 +30,7 @@ jobs:
           name: linux-dependencies
           path: |
             icu/icu4c/source/
-            icu/icu4c/source/bin
+            icu/icu4c/include/
             SDL2/include
             SDL2/build
             SDL2_image/include
