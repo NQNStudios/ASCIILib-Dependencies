@@ -28,6 +28,9 @@ jobs:
       - name: Build SDL2_image
         run: ./configure; make
         working-directory: SDL2_image
+
+      - run: ls -R
+        working-directory: SDL2_image
       
       - name: Build SDL2_mixer
         run: ./configure; make
