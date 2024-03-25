@@ -35,6 +35,7 @@ jobs:
           path: |
             icu/icu4c/source/
             icu/icu4c/include/
+            icu/icu4c/lib/
             SDL2/include
             SDL2/build
             SDL2_image/include
