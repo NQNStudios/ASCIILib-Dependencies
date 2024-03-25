@@ -29,9 +29,6 @@ jobs:
         run: ./configure; make
         working-directory: SDL2_image
 
-      - run: ls -R
-        working-directory: SDL2_image
-      
       - name: Build SDL2_mixer
         run: ./configure; make
         working-directory: SDL2_mixer
@@ -47,6 +44,7 @@ jobs:
             SDL2/include
             SDL2/build
             SDL2_image/include
+            SDL2_image/.libs
             SDL2_image/build
             SDL2_mixer/include
             SDL2_mixer/build
