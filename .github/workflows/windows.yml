@@ -35,15 +35,26 @@ jobs:
 
       - run: tar -cvf icu_icu4c.tar icu/icu4c
 
+      # Put everything important in include/ and lib/
+      - run: mkdir include; mkdir lib
+        shell: bash
+      - run: mv **/include/* include/
+        shell: bash
+      - run: mv **/VisualC/x64/Release/*.lib lib/
+        shell: bash
+      - run: mv **/VisualC/x64/Release/*.dll lib/
+        shell: bash
+      - run: mv icu/icu4c/include/* include/
+        shell: bash
+      - run: mv icu/icu4c/lib64/* lib/
+        shell: bash
+      - run: mv icu/icu4c/bin64/* lib/
+        shell: bash
+
       # Upload everything
       - uses: actions/upload-artifact@v4
         with:
           name: windows-dependencies
           path: |
-            icu_icu4c.tar
-            SDL2/include
-            SDL2/VisualC/x64/Release
-            SDL2_image/include
-            SDL2_image/VisualC/x64/Release
-            SDL2_mixer/include
-            SDL2_mixer/VisualC/x64/Release
+            include
+            lib

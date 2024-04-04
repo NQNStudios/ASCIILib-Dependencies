@@ -32,19 +32,19 @@ jobs:
       - name: Build SDL2_mixer
         run: ./configure; make
         working-directory: SDL2_mixer
-      
+
+      # Put everything important in include/ and lib/
+      - run: mkdir include; mkdir lib
+      - run: mv **/include/* include/
+      - run: mv **/build/.libs/*.dylib lib/
+      - run: mv **/.libs/*.dylib lib/
+      - run: mv icu/icu4c/include/* include/
+      - run: mv icu/icu4c/lib/* lib/
+
       # Upload everything
       - uses: actions/upload-artifact@v4
         with:
           name: mac-dependencies
           path: |
-            icu/icu4c/source/
-            icu/icu4c/include/
-            icu/icu4c/lib/
-            SDL2/include
-            SDL2/build
-            SDL2_image/include
-            SDL2_image/.libs
-            SDL2_image/build
-            SDL2_mixer/include
-            SDL2_mixer/build
+            include
+            lib
