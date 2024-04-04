@@ -32,9 +32,9 @@ jobs:
       - run: mkdir include; mkdir lib
       - run: mv **/include/* include/
       - run: mv **/build/.libs/*.a lib/
-      - run: mv **/build/.libs/*.so lib/
+      - run: mv **/build/.libs/*.so* lib/
       - run: mv **/.libs/*.a lib/
-      - run: mv **/.libs/*.so lib/
+      - run: mv **/.libs/*.so* lib/
       - run: mv icu/icu4c/include/* include/
       - run: mv icu/icu4c/lib/* lib/
 
