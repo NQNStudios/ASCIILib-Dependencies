@@ -29,7 +29,6 @@ jobs:
         working-directory: SDL2_mixer
 
       # Put everything important in include/ and lib/
-      - run: mkdir include; mkdir lib
       - run: mv **/include/* include/
       - run: mv **/build/.libs/*.a lib/
       - run: mv **/build/.libs/*.so* lib/
