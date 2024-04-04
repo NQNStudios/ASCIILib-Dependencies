@@ -5,12 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Configure ICU
         run: ./runConfigureICU Linux --with-library-bits=64 --prefix=$(pwd)/../
         working-directory: icu/icu4c/source
       - name: Build ICU
-        run: make
+        run: make --enable-static
         working-directory: icu/icu4c/source
       - name: Build ICU include directories
         run: make install
