@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Configure ICU
-        run: ./runConfigureICU Linux --enable-static --with-library-bits=64 --prefix=$(pwd)/../
+        run: ./runConfigureICU Linux --enable-static --with-library-bits=64 --prefix=$(pwd)/../../../
         working-directory: icu/icu4c/source
       - name: Build ICU
         run: make
@@ -27,15 +27,6 @@ jobs:
       - name: Build SDL2_mixer
         run: ./configure --prefix=$(pwd)/../; make; make install
         working-directory: SDL2_mixer
-
-      # Put everything important in include/ and lib/
-      - run: mv **/include/* include/
-      - run: mv **/build/.libs/*.a lib/
-      - run: mv **/build/.libs/*.so* lib/
-      - run: mv **/.libs/*.a lib/
-      - run: mv **/.libs/*.so* lib/
-      - run: mv icu/icu4c/include/* include/
-      - run: mv icu/icu4c/lib/* lib/
 
       # Upload everything
       - uses: actions/upload-artifact@v4
