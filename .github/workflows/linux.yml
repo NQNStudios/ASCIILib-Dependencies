@@ -1,5 +1,10 @@
 name: Linux build
-on: [push]
+on:
+  push:
+    branches:
+      - "*"
+    tags:
+      - "v*.*.*"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,10 +33,18 @@ jobs:
         run: CXXFLAGS=-m64 ./configure --prefix=$(pwd)/../; make; make install
         working-directory: SDL2_mixer
 
-      # Upload everything
+      # Zip
+      - run: zip -r asciilib-dependencies-linux.zip include lib
+
+      # Upload everything as artifact
       - uses: actions/upload-artifact@v4
         with:
           name: linux-dependencies
-          path: |
-            include
-            lib
+          path: asciilib-dependencies-linux.zip
+
+      # If tagged, upload a release
+      - name: Github release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: asciilib-dependencies-linux.zip
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}

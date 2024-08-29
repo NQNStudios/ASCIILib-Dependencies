@@ -1,5 +1,10 @@
 name: Windows build
-on: [push]
+on:
+  push:
+    branches:
+      - "*"
+    tags:
+      - "v*.*.*"
 jobs:
   build:
     runs-on: windows-latest
@@ -51,10 +56,18 @@ jobs:
       - run: mv icu/icu4c/bin64/* lib/
         shell: bash
 
+      # Zip
+      - run: zip -r asciilib-dependencies-windows.zip include lib
+
       # Upload everything
       - uses: actions/upload-artifact@v4
         with:
           name: windows-dependencies
-          path: |
-            include
-            lib
+          path: asciilib-dependencies-windows.zip
+
+      # If tagged, upload a release
+      - name: Github release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: asciilib-dependencies-windows.zip
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
