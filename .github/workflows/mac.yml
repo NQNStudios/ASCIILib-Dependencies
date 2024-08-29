@@ -7,14 +7,16 @@ on:
       - "v*.*.*"
 env:
   MACOSX_DEPLOYMENT_TARGET: 10.13
-matrix:
-  arch:
-  - name: intel
-    flag: x86_64
-  - name: silicon
-    flag: arm64
 jobs:
   build:
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+        - name: intel
+          flag: x86_64
+        - name: silicon
+          flag: arm64
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
