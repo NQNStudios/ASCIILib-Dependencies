@@ -15,9 +15,11 @@ jobs:
         arch:
         - name: intel
           flag: x86_64
+          runner: 12
         - name: silicon
           flag: arm64
-    runs-on: macos-latest
+          runner: 14
+    runs-on: macos-${{ matrix.arch.runner }}
     steps:
       - uses: actions/checkout@v4
 
