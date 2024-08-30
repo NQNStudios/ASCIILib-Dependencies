@@ -38,8 +38,6 @@ jobs:
       - run: mv SDL SDL2
         shell: bash
 
-      - run: tar -cvf icu_icu4c.tar icu/icu4c
-
       # Put everything important in include/ and lib/
       - run: mkdir include; mkdir lib
         shell: bash
@@ -57,7 +55,7 @@ jobs:
         shell: bash
 
       # Zip
-      - run: zip -r asciilib-dependencies-windows.zip include lib
+      - run: Compress-Archive -Path include lib -Destination asciilib-dependencies-windows.zip
 
       # Upload everything
       - uses: actions/upload-artifact@v4
