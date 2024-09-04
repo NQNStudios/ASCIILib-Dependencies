@@ -1,7 +1,8 @@
 name: Mac universal build
 on:
   release:
-    - published
+    types:
+      - published
 jobs:
   build:
     runs-on: macos-14
