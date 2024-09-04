@@ -9,7 +9,7 @@ jobs:
       # Download macos-intel
       - uses: robinraju/release-downloader@v1
         with:
-          tag: ${{github.tag_name}}
+          latest: true
           fileName: 'asciilib-dependencies-mac-intel.zip'
           zipBall: true
           extract: true
@@ -17,7 +17,7 @@ jobs:
       # Download macos-silicon
       - uses: robinraju/release-downloader@v1
         with:
-          tag: ${{github.tag_name}}
+          latest: true
           fileName: 'asciilib-dependencies-mac-silicon.zip'
           zipBall: true
           extract: true
