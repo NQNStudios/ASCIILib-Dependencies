@@ -9,7 +9,7 @@ jobs:
       # Download macos-intel
       - uses: robinraju/release-downloader@v1
         with:
-          tag: ${{release.tag_name}}
+          tag: ${{github.tag_name}}
           fileName: 'asciilib-dependencies-mac-intel.zip'
           zipBall: true
           extract: true
