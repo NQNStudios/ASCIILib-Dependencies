@@ -63,3 +63,4 @@ jobs:
         with:
           files: asciilib-dependencies-mac-${{ matrix.arch.name }}.zip
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        token: ${{ secrets.PERSONAL_TOKEN }}
