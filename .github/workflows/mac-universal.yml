@@ -22,6 +22,7 @@ jobs:
           zipBall: true
           extract: true
 
+      - uses: actions/checkout@v4
       - run: ./make-universal.sh
 
       # Zip
