@@ -1,0 +1,40 @@
+name: Mac universal build
+on:
+  release:
+    - published
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      # Download macos-intel
+      - uses: robinraju/release-downloader@v1
+        with:
+          tag: ${{release.tag_name}}
+          fileName: 'asciilib-dependencies-mac-intel.zip'
+          zipBall: true
+          extract: true
+
+      # Download macos-silicon
+      - uses: robinraju/release-downloader@v1
+        with:
+          tag: ${{release.tag_name}}
+          fileName: 'asciilib-dependencies-mac-silicon.zip'
+          zipBall: true
+          extract: true
+
+      - run: ./make-universal.sh
+
+      # Zip
+      - run: zip -r asciilib-dependencies-mac-universal.zip include lib
+
+      # Upload everything as artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mac-universal-dependencies
+          path: asciilib-dependencies-mac-universal.zip
+
+      # upload a release
+      - name: Github release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: asciilib-dependencies-mac-universal.zip
