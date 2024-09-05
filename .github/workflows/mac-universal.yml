@@ -27,6 +27,7 @@ jobs:
           zipBall: true
           extract: true
 
+      - run: ls
       - run: ./make-universal.sh
 
       # Zip
