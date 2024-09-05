@@ -9,6 +9,8 @@ jobs:
   build:
     runs-on: macos-14
     steps:
+      - uses: actions/checkout@v4
+
       # Download macos-intel
       - uses: robinraju/release-downloader@v1
         with:
@@ -25,9 +27,6 @@ jobs:
           zipBall: true
           extract: true
 
-      - uses: actions/checkout@v4
-      - run: ls
-      - run: ls ../
       - run: ./make-universal.sh
 
       # Zip
@@ -40,7 +39,7 @@ jobs:
           path: asciilib-dependencies-mac-universal.zip
 
       # upload a release
-      - name: Github release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: asciilib-dependencies-mac-universal.zip
+      #- name: Github release
+      #  uses: softprops/action-gh-release@v2
+      #  with:
+      #    files: asciilib-dependencies-mac-universal.zip
