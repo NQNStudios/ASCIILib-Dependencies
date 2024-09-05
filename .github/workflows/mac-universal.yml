@@ -13,6 +13,7 @@ jobs:
 
       # Download macos-intel
       - uses: robinraju/release-downloader@v1
+        id: download
         with:
           latest: true
           fileName: 'asciilib-dependencies-mac-intel.zip'
@@ -45,3 +46,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: asciilib-dependencies-mac-universal.zip
+          tag_name: ${{ steps.download.outputs.tag_name }}
