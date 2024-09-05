@@ -29,7 +29,6 @@ jobs:
           extract: true
           out-file-path: 'asciilib-dependencies-mac-silicon'
 
-      - run: ls
       - run: ./make-universal.sh
 
       # Zip
@@ -41,8 +40,8 @@ jobs:
           name: mac-universal-dependencies
           path: asciilib-dependencies-mac-universal.zip
 
-      # upload a release
-      #- name: Github release
-      #  uses: softprops/action-gh-release@v2
-      #  with:
-      #    files: asciilib-dependencies-mac-universal.zip
+      upload a release
+      - name: Github release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: asciilib-dependencies-mac-universal.zip
