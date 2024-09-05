@@ -1,5 +1,8 @@
 name: Mac universal build
 on:
+  push:
+    branches:
+      - universal
   release:
     types: [published]
 jobs:
@@ -23,6 +26,7 @@ jobs:
           extract: true
 
       - uses: actions/checkout@v4
+      - run: ls
       - run: ./make-universal.sh
 
       # Zip
