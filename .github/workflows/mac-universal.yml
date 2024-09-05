@@ -18,6 +18,7 @@ jobs:
           fileName: 'asciilib-dependencies-mac-intel.zip'
           zipBall: true
           extract: true
+          out-file-path: 'asciilib-dependencies-mac-intel'
 
       # Download macos-silicon
       - uses: robinraju/release-downloader@v1
@@ -26,6 +27,7 @@ jobs:
           fileName: 'asciilib-dependencies-mac-silicon.zip'
           zipBall: true
           extract: true
+          out-file-path: 'asciilib-dependencies-mac-silicon'
 
       - run: ls
       - run: ./make-universal.sh
